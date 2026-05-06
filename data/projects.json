@@ -28,15 +28,5 @@
     "status": "Planning",
     "featured": true,
     "tags": ["ROS", "Robot", "Hermes"]
-  },
-  {
-    "name": "Stella-CN.github.io",
-    "summary": "当前个人开源项目展示主页，基于 GitHub Pages 构建。",
-    "repoUrl": "https://github.com/Stella-CN/Stella-CN.github.io",
-    "homepage": "https://stella-cn.github.io",
-    "language": "HTML/CSS/JS",
-    "status": "Active",
-    "featured": false,
-    "tags": ["GitHub Pages", "Portfolio", "Website"]
   }
 ]

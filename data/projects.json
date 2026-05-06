@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Hermes",
+    "summary": "Hermes 项目主仓库，用于集中展示核心代码、文档和项目进展。",
+    "repoUrl": "https://github.com/Stella-CN/Hermes",
+    "homepage": "",
+    "language": "Project",
+    "status": "Active",
+    "featured": true,
+    "tags": ["Open Source", "Hermes"]
+  },
+  {
+    "name": "hermes_body",
+    "summary": "Hermes 相关的底层/本体代码仓库，当前主要语言为 C。",
+    "repoUrl": "https://github.com/Stella-CN/hermes_body",
+    "homepage": "",
+    "language": "C",
+    "status": "Active",
+    "featured": true,
+    "tags": ["C", "Robot", "Hermes"]
+  },
+  {
+    "name": "hermes_ros",
+    "summary": "Hermes 相关的 ROS 项目仓库，用于后续整理机器人软件、节点或集成内容。",
+    "repoUrl": "https://github.com/Stella-CN/hermes_ros",
+    "homepage": "",
+    "language": "ROS",
+    "status": "Planning",
+    "featured": true,
+    "tags": ["ROS", "Robot", "Hermes"]
+  },
+  {
+    "name": "Stella-CN.github.io",
+    "summary": "当前个人开源项目展示主页，基于 GitHub Pages 构建。",
+    "repoUrl": "https://github.com/Stella-CN/Stella-CN.github.io",
+    "homepage": "https://stella-cn.github.io",
+    "language": "HTML/CSS/JS",
+    "status": "Active",
+    "featured": false,
+    "tags": ["GitHub Pages", "Portfolio", "Website"]
+  }
+]

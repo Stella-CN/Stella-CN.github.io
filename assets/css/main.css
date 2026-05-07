@@ -171,40 +171,37 @@ h1,
 }
 
 .hero-section-jump {
-  display: grid;
+  display: flex;
   max-width: 720px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin-top: 32px;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .hero-section-jump a {
-  display: flex;
-  min-height: 72px;
-  flex-direction: column;
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
   justify-content: center;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: rgba(8, 14, 31, 0.46);
-  box-shadow: 0 16px 46px rgba(1, 6, 18, 0.28);
-  color: var(--text);
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(245, 184, 75, 0.92), rgba(25, 183, 216, 0.86)),
+    rgba(8, 14, 31, 0.42);
+  box-shadow: 0 12px 30px rgba(245, 184, 75, 0.18);
+  color: #07111f;
+  font-size: 0.94rem;
   font-weight: 900;
-  backdrop-filter: blur(18px);
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  line-height: 1;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
 .hero-section-jump a:hover {
-  transform: translateY(-3px);
-  border-color: rgba(248, 211, 122, 0.48);
-  background: rgba(15, 28, 54, 0.72);
-}
-
-.hero-section-jump span {
-  margin-bottom: 4px;
-  color: var(--primary-light);
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 38px rgba(25, 183, 216, 0.24);
+  filter: saturate(1.08);
 }
 
 .button {
@@ -286,30 +283,59 @@ h1,
 
 .reveal-enabled .reveal-section {
   opacity: 0;
-  transform: translateY(34px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  filter: blur(10px);
+  transform: translateY(72px) scale(0.97);
+  transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.reveal-enabled .reveal-section.is-visible {
+.reveal-enabled .reveal-section.is-resetting {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(90px) scale(0.96);
+  transition: none;
+}
+
+.reveal-enabled .reveal-section.is-visible,
+.reveal-enabled .reveal-section.is-replaying {
   opacity: 1;
+  filter: blur(0);
   transform: translateY(0);
 }
 
 .reveal-enabled .reveal-section .project-card,
 .reveal-enabled .reveal-section .update-card,
 .reveal-enabled .reveal-section .about-card {
-  transform: translateY(18px);
-  transition: transform 0.75s ease;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal-enabled .reveal-section.is-visible .project-card,
 .reveal-enabled .reveal-section.is-visible .update-card,
-.reveal-enabled .reveal-section.is-visible .about-card {
+.reveal-enabled .reveal-section.is-visible .about-card,
+.reveal-enabled .reveal-section.is-replaying .project-card,
+.reveal-enabled .reveal-section.is-replaying .update-card,
+.reveal-enabled .reveal-section.is-replaying .about-card {
+  opacity: 1;
   transform: translateY(0);
 }
 
 .reveal-enabled .reveal-section.is-visible .project-card:hover {
   transform: translateY(-4px);
+}
+
+.reveal-enabled .reveal-section.is-visible .project-card:nth-child(2),
+.reveal-enabled .reveal-section.is-visible .update-card:nth-child(2),
+.reveal-enabled .reveal-section.is-replaying .project-card:nth-child(2),
+.reveal-enabled .reveal-section.is-replaying .update-card:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.reveal-enabled .reveal-section.is-visible .project-card:nth-child(3),
+.reveal-enabled .reveal-section.is-visible .update-card:nth-child(3),
+.reveal-enabled .reveal-section.is-replaying .project-card:nth-child(3),
+.reveal-enabled .reveal-section.is-replaying .update-card:nth-child(3) {
+  transition-delay: 0.16s;
 }
 
 .section-heading {
@@ -520,7 +546,7 @@ h1,
   }
 
   .hero-section-jump {
-    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .hero {
@@ -549,7 +575,9 @@ h1,
   }
 
   .hero-section-jump a {
-    min-height: 56px;
+    min-height: 36px;
+    padding: 0 13px;
+    font-size: 0.9rem;
   }
 }
 

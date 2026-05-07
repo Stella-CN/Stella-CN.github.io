@@ -21,6 +21,7 @@ if (navToggle && navLinks) {
 }
 
 const revealSections = document.querySelectorAll('.reveal-section');
+const sectionJumpLinks = document.querySelectorAll('.hero-section-jump a, .nav-links a[href^="#"]');
 
 if (revealSections.length) {
   document.documentElement.classList.add('reveal-enabled');
@@ -41,6 +42,24 @@ if (revealSections.length) {
   } else {
     revealSections.forEach((section) => section.classList.add('is-visible'));
   }
+
+  sectionJumpLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || targetId === '#top') return;
+
+      const targetSection = document.querySelector(targetId);
+      if (!targetSection || !targetSection.classList.contains('reveal-section')) return;
+
+      targetSection.classList.remove('is-visible', 'is-replaying');
+      targetSection.classList.add('is-resetting');
+
+      window.setTimeout(() => {
+        targetSection.classList.remove('is-resetting');
+        targetSection.classList.add('is-replaying');
+      }, 220);
+    });
+  });
 }
 
 const projectList = document.querySelector('#project-list');

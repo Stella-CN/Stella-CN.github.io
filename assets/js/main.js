@@ -20,6 +20,29 @@ if (navToggle && navLinks) {
   });
 }
 
+const revealSections = document.querySelectorAll('.reveal-section');
+
+if (revealSections.length) {
+  document.documentElement.classList.add('reveal-enabled');
+
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -12% 0px',
+      threshold: 0.16,
+    });
+
+    revealSections.forEach((section) => sectionObserver.observe(section));
+  } else {
+    revealSections.forEach((section) => section.classList.add('is-visible'));
+  }
+}
+
 const projectList = document.querySelector('#project-list');
 
 function createProjectCard(project) {
